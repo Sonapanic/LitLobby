@@ -30,7 +30,7 @@ const pool = new Pool ({
 app.get('/books', async (req, res) => {
     try {
         const result = await pool.query('SELECT id, title, description, author, page, genre FROM books')
-        res.status(200).json(result.rows)
+        res.status(200).setHeader('Content-Type', 'application/json').json(result.rows)
     } catch (err) {
         console.error(err)
         res.status(500).send('Internal Server Error')
