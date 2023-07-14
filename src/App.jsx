@@ -11,15 +11,15 @@ function App() {
   
   const [books, setBooks] = useState([])
 
-  // useEffect(() => {
-  //   async function populateAllBooks() {
-  //     const result = await fetch(url)
-
-  //     setBooks(result)
-  //     console.log(books)
-  //   }
-  //   populateAllBooks()
-  // }, [])
+  useEffect(() => {
+    async function populateAllBooks() {
+      const result = await fetch(url)
+      const data = await result.json()
+      setBooks(data)
+      console.log(books)
+    }
+    populateAllBooks()
+  }, [])
 
 
   return <>
