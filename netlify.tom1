@@ -1,9 +1,13 @@
 [[headers]]
-  for = "/*.js" # Specify the file pattern for JavaScript files
+  for = "/*.js"
   [headers.values]
     Content-Type = "application/javascript"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
-  for = "/*.css" # Specify the file pattern for CSS files
+  for = "/*.jsx"
   [headers.values]
-    Content-Type = "text/css"
+    Content-Type = "text/javascript"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=0, must-revalidate"
