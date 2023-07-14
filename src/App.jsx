@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Header from './components/Header'
-import BookCards from './components/BookCards'
+import Header from './components/Header.jsx'
+import BookCards from './components/BookCards.jsx'
 
 // const url = 'http://localhost:5173/books'
 

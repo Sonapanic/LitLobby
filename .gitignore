@@ -24,3 +24,6 @@ C:\Users\Isaac\Documents\GitHub\react-mvp\server\.env
 *.sln
 *.sw?
 
+
+# Local Netlify folder
+.netlify
