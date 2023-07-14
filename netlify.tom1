@@ -1,0 +1,9 @@
+[[headers]]
+  for = "/*.js" # Specify the file pattern for JavaScript files
+  [headers.values]
+    Content-Type = "application/javascript"
+
+[[headers]]
+  for = "/*.css" # Specify the file pattern for CSS files
+  [headers.values]
+    Content-Type = "text/css"
