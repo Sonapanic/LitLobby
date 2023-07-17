@@ -3,7 +3,7 @@
 
 
 
-const BookCards = ({ books }) => {
+const BookCards = () => {
     return <h1>finally</h1>
 }
 

@@ -32,7 +32,7 @@ function App() {
 
   return <>
     <Header />
-    <BookCards books={books}/>
+    <BookCards />
   </>
 }
 
