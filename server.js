@@ -75,6 +75,7 @@ app.post('/books', async (req, res) => {
 
 app.put('/books/:id', async (req, res) => {
     const { id } = req.params
+    console.log('test')
     const { title, description, author, page, genre } = req.body
     if (title && description && author && page && genre) {
         try {
@@ -108,7 +109,4 @@ app.use((req, res) => {
 })
 
 
-app.listen(port, () => {
-    console.log(`shhhh on ${port}`)
-    console.log(process.env.DATABASE_URL)
-})
+app.listen(port)
