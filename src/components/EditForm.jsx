@@ -32,7 +32,7 @@ const EditForm = ({ selectThisBook, setIndicateSubmit, book, handleEditSubmit })
         setPageValue(e.currentTarget.value)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         setIndicateSubmit({
             title: titleValue,
@@ -42,8 +42,7 @@ const EditForm = ({ selectThisBook, setIndicateSubmit, book, handleEditSubmit })
             page: pageValue,
             id: book.id
         })
-        selectThisBook({})
-        handleEditSubmit()
+        selectThisBook({})   
     }
 
 

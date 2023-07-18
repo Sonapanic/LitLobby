@@ -38,14 +38,21 @@ function App() {
   }, [])
 
 
+  useEffect(() => {
+    if (indicateSubmit) {
+      handleEditSubmit()
+    }
+  }, [indicateSubmit])
+
+
+
   // Edit one function
   const handleEditSubmit = async () => {
-    if (indicateSubmit !== null) {
-      if (indicateSubmit.title && indicateSubmit.author && indicateSubmit.description && indicateSubmit.genre && indicateSubmit.page) {
+  
+      if (indicateSubmit && indicateSubmit.title && indicateSubmit.author && indicateSubmit.description && indicateSubmit.genre && indicateSubmit.page) {
         try {
           const id = indicateSubmit.id;
           delete indicateSubmit.id;
-          console.log(indicateSubmit);
           const result = await fetch(`${url}/${id}`, {
             method: 'PUT',
             headers: {
@@ -59,9 +66,8 @@ function App() {
           console.error(err);
         }
         populateAllBooks();
-      } else {
-        alert('Please fill in all fields.');
-      }
+    } else {
+      alert('Fill in all fields')
     }
   };
   
