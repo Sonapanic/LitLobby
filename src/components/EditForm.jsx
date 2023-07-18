@@ -61,7 +61,7 @@ const EditForm = ({ selectThisBook, setIndicateSubmit, book, handleEditSubmit, s
                 <input className="formText" type='text' id="author" value={authorValue} onChange={changeAuthor} required></input>
                 <label>Author</label>
 
-                <textarea className="formText" value={descriptionValue} onChange={changeDescription} required></textarea>
+                <textarea className="formText" id="noResize" value={descriptionValue} onChange={changeDescription} required></textarea>
                 <label>Description</label>               
                 
                 <input className="formText" type='text' value={genreValue} id="genre"onChange={changeGenre} required></input>
