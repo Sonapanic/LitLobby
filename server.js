@@ -29,7 +29,7 @@ const pool = new Pool ({
 
 app.get('/books', async (req, res) => {
     try {
-        const result = await pool.query('SELECT id, title, description, author, page, genre FROM books')
+        const result = await pool.query('SELECT id, title, description, author, page, genre FROM books ORDER BY id ASC')
         res.status(200).json(result.rows)
     } catch (err) {
         console.error(err)
