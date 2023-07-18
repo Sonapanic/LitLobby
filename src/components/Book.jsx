@@ -18,11 +18,13 @@ const Book = ({ book, isSelected, selectThisBook, setIndicateSubmit, handleEditS
 
     return (
         <div className="bookCard" onClick={handleClick}>
-            <h1>{book.title}</h1>
+            <h1 className='bookTitle'><i className='bookItalic'>{book.title}</i></h1>
             <h2>{book.author}</h2>
-            <p>{book.description}</p>
+            <div id='pDiv'>
+                <p id='desc'>{book.description}</p>
+            </div>
             <h3>{book.genre}</h3>
-            <p>{book.page}</p>
+            <p className='pages'>Current Page: {book.page}</p>
         </div>
     )
 }
