@@ -3,10 +3,11 @@ import AddForm from './AddForm.jsx'
 
 
 
-const NewBookBtn = ({ setToBeAdded, toBeAdded }) => {
+const NewBookBtn = ({ setToBeAdded, toBeAdded, selectThisBook }) => {
 
     const handleClick = () => {
         setToBeAdded(!toBeAdded)
+        selectThisBook({})
     }
 
     if (!toBeAdded) {

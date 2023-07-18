@@ -2,15 +2,41 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Gentium Book Plus', serif;
+    background-color: #E8E6B5;
   }
   
 
+
+  .btn {
+    color: whitesmoke; 
+    background-color: #336699;
+    border: none;
+    padding: .2rem;
+  }
+
+
+
 /* Header Styling */
+
+#title {
+    color: #336699;
+    background-color: #281C11;
+}
+
+i {
+    background-color: #281C11;
+    color: #006600;
+}
+
+
+
 .headerDiv {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 6rem;
+    background-color: #281C11
 }
 
 #title {
@@ -18,38 +44,134 @@
 }
 
 #headerBtn {
-    padding: 2rem;
     border: 1px solid black;
+    margin-right: 2rem;
+    width: 6rem;
 }
 
 #headerBtn:hover {
     cursor: pointer;
+    
 }
 
 
 
+/*Form Styling */
+.formText {
+    border: none;
+    border-bottom: 1px solid #333;
+    width: 90%;
+    overflow: visible;
+    padding: 1rem;
+    text-align: center;
+}
+
+.editContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 18rem;
+    animation: fadeIn 1s;
+    padding: 1rem;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+}
+
+#selectedBookForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+label {
+    padding: .25rem;
+    padding-bottom: 1rem;
+    /* font-size: larger; */
+}
+
+
+
+
+
+
+/* Card Styling */
 .cardDiv {
     display: flex;
-
+    padding: 3rem;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    column-gap: 3rem;
+    row-gap: 5rem;
 }
 
 
 .bookCard {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 1rem;
+    width: 18rem;
+    height: 32rem;
+    border-radius: 8%;
+    box-shadow: .75rem .5rem #333;
+    background-color: #7C5D46;
+    animation: fadeIn 1s;
+}
 
+@keyframes fadeOut {
+    0% { opacity: 1 }
+    100% { opacity: 0 }
 }
 
 .bookCard:hover {
     cursor: pointer;
 }
 
-/* .editContainer {
-    height: 5vh;
-    width: 20vw;
-} */
 
-/* #selectedBookForm {
+
+h1, 
+p,
+h2, 
+h3 {
+    background-color: #7C5D46;
+
+}
+
+
+
+
+
+
+
+
+/* Addition Form Styling */
+
+#addForm {
     display: flex;
     flex-wrap: wrap;
-} */
+    width: 25rem;
+    animation: fadeIn 1s;
+    padding: 2rem;
+    justify-content: center;
+}
+
+
+.addDiv {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+#addSubmitBtn {
+    width: 5rem;
+    height: 2rem;
+    margin-top: 2rem;
+}
+
+
+.addLabel {
+    font-size: x-large;
+}

@@ -52,7 +52,7 @@ function App() {
   
   const handleEditSubmit = async () => {
   
-      if (indicateSubmit && indicateSubmit.title && indicateSubmit.author && indicateSubmit.description && indicateSubmit.genre && indicateSubmit.page) {
+      // if (indicateSubmit && indicateSubmit.title && indicateSubmit.author && indicateSubmit.description && indicateSubmit.genre && indicateSubmit.page) {
         try {
           const id = indicateSubmit.id;
           delete indicateSubmit.id;
@@ -68,9 +68,9 @@ function App() {
           console.error(err);
         }
         populateAllBooks();
-    } else {
-      alert('Fill in all fields')
-    }
+    // } else {
+    //   window.confirm('Fill in all fields')
+    // }
   };
   
   
@@ -100,7 +100,7 @@ function App() {
 
 
 
-
+  // Functions for adding a book
   useEffect(() => {
     if (isNewBook) {
       addBook()
@@ -145,7 +145,7 @@ function App() {
   }
 
   return <>
-    <Header setToBeAdded={setToBeAdded} toBeAdded={toBeAdded}/>
+    <Header setToBeAdded={setToBeAdded} toBeAdded={toBeAdded} selectThisBook={selectThisBook}/>
     <CardDiv books={books} isSelected={isSelected} selectThisBook={selectThisBook} setIndicateSubmit={setIndicateSubmit} handleEditSubmit={handleEditSubmit} toBeDeleted={toBeDeleted} setToBeDeleted={setToBeDeleted}/>
   </>
 }

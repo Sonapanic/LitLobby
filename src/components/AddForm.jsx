@@ -44,26 +44,28 @@ const AddForm = ({ setIsNewBook }) => {
 
 
     return ( 
-        <>
-            <form className="form" id="addForm">
-                <label>Title</label>
-                    <input type='text' value={titleValue} id="bookTitle" onChange={changeTitle}></input>
+        <div className="addDiv">
+            <form className="form" id="addForm" onSubmit={handleSubmit}>
 
-                    <label>Author</label>
-                    <input type='text' id="author" value={authorValue} onChange={changeAuthor} ></input>
+                <input className="formText" type='text' value={titleValue} id="bookTitle" onChange={changeTitle} required></input>
+                <label className="addLabel">Title</label>
 
-                    <label>Description</label>
-                    <input type='text' id="description" value={descriptionValue} onChange={changeDescription}></input>
                 
-                    <label>Genre</label>
-                    <input type='text' value={genreValue} id="genre"onChange={changeGenre}></input>
-              
-                    <label>What page did you leave off on?</label>
-                    <input type='text' value={pageValue} id="page"onChange={changePage}></input>
+                <input className="formText" type='text' id="author" value={authorValue} onChange={changeAuthor} required></input>
+                <label className="addLabel">Author</label>
+                
+                <textarea className="formText" value={descriptionValue} onChange={changeDescription} required></textarea>
+                <label className="addLabel">Description</label>
+                
+                <input className="formText" type='text' value={genreValue} id="genre"onChange={changeGenre} required></input>
+                <label className="addLabel">Genre</label>
+                
+                <input className="formText" type='number' value={pageValue} id="page"onChange={changePage} required></input>
+                <label className="addLabel">What page did you leave off on?</label>
 
-                <input type='submit' onClick={handleSubmit} id="submitAddBtn"></input>
+                <input className="btn" id="addSubmitBtn" type='submit'></input>
             </form>
-        </>
+        </div>
     )
 }
 

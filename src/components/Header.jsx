@@ -5,13 +5,13 @@ import NewBookBtn from './NewBookBtn.jsx'
 
 
 
-const Header = ({ setToBeAdded, toBeAdded }) => {
+const Header = ({ setToBeAdded, toBeAdded, selectThisBook }) => {
 
     
     return (
         <div className='headerDiv'>
             <h1 id='title'>Lit<i>Lobby</i></h1>
-            <NewBookBtn setToBeAdded={setToBeAdded} toBeAdded={toBeAdded}/>
+            <NewBookBtn setToBeAdded={setToBeAdded} toBeAdded={toBeAdded} selectThisBook={selectThisBook}/>
         </div>
     )
 }
