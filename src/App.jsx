@@ -13,6 +13,7 @@ function App() {
   const [books, setBooks] = useState([])
   const [indicateSubmit, setIndicateSubmit] = useState(null)
   const [isSelected, setIsSelected] = useState({})
+  const [toBeDeleted, setToBeDeleted] = useState(null)
 
   const selectThisBook = (book) => {
     setIsSelected(book)
@@ -38,15 +39,15 @@ function App() {
   }, [])
 
 
+
+ // Edit one functions - useEffect for detecting state change, handleEditSubmit for executing fetch request
   useEffect(() => {
     if (indicateSubmit) {
       handleEditSubmit()
     }
   }, [indicateSubmit])
 
-
-
-  // Edit one function
+  
   const handleEditSubmit = async () => {
   
       if (indicateSubmit && indicateSubmit.title && indicateSubmit.author && indicateSubmit.description && indicateSubmit.genre && indicateSubmit.page) {
@@ -72,11 +73,36 @@ function App() {
   };
   
   
+
+  // Delete functions - useEffect for detecting state change, removeBook for executing the fetch request
+  useEffect(() => {
+    if (toBeDeleted) {
+      removeBook()
+    }
+  }, [toBeDeleted])
+
+  const removeBook = async () => {
+    try {
+      const { id } = toBeDeleted
+      const result = await fetch(`${url}/${id}`, {
+        method: 'DELETE',
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      const deleted = await result.json()
+      console.log(deleted)
+    } catch (err) {
+      console.error(err)
+    }
+    populateAllBooks()
+  }
+
   
 
   return <>
     <Header />
-    <CardDiv books={books} isSelected={isSelected} selectThisBook={selectThisBook} setIndicateSubmit={setIndicateSubmit} handleEditSubmit={handleEditSubmit}/>
+    <CardDiv books={books} isSelected={isSelected} selectThisBook={selectThisBook} setIndicateSubmit={setIndicateSubmit} handleEditSubmit={handleEditSubmit} toBeDeleted={toBeDeleted} setToBeDeleted={setToBeDeleted}/>
   </>
 }
 

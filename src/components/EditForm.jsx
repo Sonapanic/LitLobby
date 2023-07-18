@@ -1,11 +1,11 @@
 import { useState } from "react"
+import DeleteBtn from './DeleteBtn.jsx'
 
 
 
 
 
-
-const EditForm = ({ selectThisBook, setIndicateSubmit, book, handleEditSubmit }) => {
+const EditForm = ({ selectThisBook, setIndicateSubmit, book, handleEditSubmit, setToBeDeleted }) => {
 
     const [titleValue, setTitleValue] = useState('')
     const changeTitle = (e) => {
@@ -70,6 +70,8 @@ const EditForm = ({ selectThisBook, setIndicateSubmit, book, handleEditSubmit })
                 <input type='text' value={pageValue} id="page"onChange={changePage}></input>
 
                 <input type='submit' onClick={handleSubmit} id="editSubmitBtn"></input>
+
+                <DeleteBtn setToBeDeleted={setToBeDeleted} book={book}/>
             </form>
         </div>
     )

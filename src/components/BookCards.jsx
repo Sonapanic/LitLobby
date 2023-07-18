@@ -3,7 +3,7 @@ import Book from './Book.jsx'
 
 
 
-const BookCards = ({ books, isSelected, selectThisBook, setIndicateSubmit, handleEditSubmit }) => {
+const BookCards = ({ books, isSelected, selectThisBook, setIndicateSubmit, handleEditSubmit, setToBeDeleted }) => {
 
 
     
@@ -11,7 +11,7 @@ const BookCards = ({ books, isSelected, selectThisBook, setIndicateSubmit, handl
 
     return (
             books.map((book) => {
-            return <Book book={book} key={book.id} isSelected={isSelected} selectThisBook={selectThisBook} setIndicateSubmit={setIndicateSubmit} handleEditSubmit={handleEditSubmit}/>
+            return <Book book={book} key={book.id} isSelected={isSelected} selectThisBook={selectThisBook} setIndicateSubmit={setIndicateSubmit} handleEditSubmit={handleEditSubmit} setToBeDeleted={setToBeDeleted}/>
         })
     )
 }

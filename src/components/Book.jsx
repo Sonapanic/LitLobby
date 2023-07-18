@@ -5,7 +5,7 @@ import EditForm from './EditForm.jsx'
 
 
 
-const Book = ({ book, isSelected, selectThisBook, setIndicateSubmit, handleEditSubmit }) => {
+const Book = ({ book, isSelected, selectThisBook, setIndicateSubmit, handleEditSubmit, setToBeDeleted }) => {
 
     const handleClick = () => {
         selectThisBook(book)
@@ -13,7 +13,7 @@ const Book = ({ book, isSelected, selectThisBook, setIndicateSubmit, handleEditS
     
 
     if (isSelected === book) {
-        return <EditForm selectThisBook={selectThisBook} setIndicateSubmit={setIndicateSubmit} book={book} handleEditSubmit={handleEditSubmit}/>
+        return <EditForm selectThisBook={selectThisBook} setIndicateSubmit={setIndicateSubmit} book={book} handleEditSubmit={handleEditSubmit} setToBeDeleted={setToBeDeleted}/>
     }
 
     return (
