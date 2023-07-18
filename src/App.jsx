@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header.jsx'
 import CardDiv from './components/CardDiv.jsx'
+import AddForm from './components/AddForm.jsx'
 
 const url = 'https://litlobby.onrender.com/books'
 // const url = 'http://localhost:10000/books'
@@ -14,12 +15,18 @@ function App() {
   const [indicateSubmit, setIndicateSubmit] = useState(null)
   const [isSelected, setIsSelected] = useState({})
   const [toBeDeleted, setToBeDeleted] = useState(null)
+  const [toBeAdded, setToBeAdded] = useState(false)
+  const [isNewBook, setIsNewBook] = useState(null)
 
   const selectThisBook = (book) => {
     setIsSelected(book)
   }
 
-  // Renders all the current books to the page
+  // Functions that render all the current books to the page, useEffect for initial render
+  useEffect(() => {
+    populateAllBooks()
+  }, [])
+
   async function populateAllBooks() {
     try {
       const result = await fetch(url)
@@ -33,14 +40,9 @@ function App() {
     }
   }
 
-  // Get all function, initial load
-  useEffect(() => {
-    populateAllBooks()
-  }, [])
 
 
-
- // Edit one functions - useEffect for detecting state change, handleEditSubmit for executing fetch request
+ // Edit one functions
   useEffect(() => {
     if (indicateSubmit) {
       handleEditSubmit()
@@ -62,7 +64,6 @@ function App() {
             body: JSON.stringify(indicateSubmit)
           });
           const response = await result.json();
-          console.log(response);
         } catch (err) {
           console.error(err);
         }
@@ -74,7 +75,7 @@ function App() {
   
   
 
-  // Delete functions - useEffect for detecting state change, removeBook for executing the fetch request
+  // Delete functions
   useEffect(() => {
     if (toBeDeleted) {
       removeBook()
@@ -91,17 +92,60 @@ function App() {
         }
       })
       const deleted = await result.json()
-      console.log(deleted)
     } catch (err) {
       console.error(err)
     }
     populateAllBooks()
   }
 
-  
+
+
+
+  useEffect(() => {
+    if (isNewBook) {
+      addBook()
+    }
+  }, [isNewBook])
+
+
+  const addBook = async () => {
+    try {
+      const result = await fetch(url, {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(isNewBook)
+      })
+      const newBook = await result.json()
+    } catch (err) {
+      console.error(err)
+    }
+    populateAllBooks()
+    setToBeAdded(!toBeAdded)
+  }
+
+
+
+
+
+
+
+
+
+
+
+  if (toBeAdded) {
+    return (<>
+      <Header setToBeAdded={setToBeAdded} toBeAdded={toBeAdded}/>
+      <AddForm setIsNewBook={setIsNewBook}/>  
+    </>
+    
+    )
+  }
 
   return <>
-    <Header />
+    <Header setToBeAdded={setToBeAdded} toBeAdded={toBeAdded}/>
     <CardDiv books={books} isSelected={isSelected} selectThisBook={selectThisBook} setIndicateSubmit={setIndicateSubmit} handleEditSubmit={handleEditSubmit} toBeDeleted={toBeDeleted} setToBeDeleted={setToBeDeleted}/>
   </>
 }

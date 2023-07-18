@@ -17,13 +17,12 @@
     padding: 1rem
 }
 
-ul {
-    list-style: none;
+#headerBtn {
     padding: 2rem;
     border: 1px solid black;
 }
 
-ul:hover {
+#headerBtn:hover {
     cursor: pointer;
 }
 

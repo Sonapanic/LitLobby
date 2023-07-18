@@ -5,17 +5,13 @@ import NewBookBtn from './NewBookBtn.jsx'
 
 
 
-const Header = () => {
+const Header = ({ setToBeAdded, toBeAdded }) => {
 
-    const handleClick = () => {
-        console.log('Clicked!') 
-        return
-    }
-
+    
     return (
         <div className='headerDiv'>
             <h1 id='title'>Lit<i>Lobby</i></h1>
-            <NewBookBtn onClick={handleClick}/>
+            <NewBookBtn setToBeAdded={setToBeAdded} toBeAdded={toBeAdded}/>
         </div>
     )
 }

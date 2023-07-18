@@ -75,7 +75,6 @@ app.post('/books', async (req, res) => {
 
 app.put('/books/:id', async (req, res) => {
     const { id } = req.params
-    console.log('test')
     const { title, description, author, page, genre } = req.body
     if (title && description && author && page && genre) {
         try {

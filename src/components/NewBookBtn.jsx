@@ -1,24 +1,21 @@
+import AddForm from './AddForm.jsx'
 
 
 
 
-
-const NewBookBtn = () => {
-
+const NewBookBtn = ({ setToBeAdded, toBeAdded }) => {
 
     const handleClick = () => {
-        console.log('Clicked!')
-        return 
+        setToBeAdded(!toBeAdded)
     }
 
+    if (!toBeAdded) {
+        return <button className="btn" id="headerBtn" onClick={handleClick}>+ New Book</button>
+    }
 
-    return (
-        <>
-            <ul onClick={handleClick}>
-                <li>+ New Book</li>
-            </ul>
-        </>
-    )
+    return <button className="btn" id="headerBtn" onClick={handleClick}>Exit</button>
+
+    
 
 
 }
