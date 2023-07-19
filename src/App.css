@@ -171,7 +171,7 @@ label {
 
 #pDiv {
     height: 10rem;
-    background-color: rgb(216, 216, 216);
+    background-color: #caced8;
     overflow: auto;
     border: 1px solid #333;
     border-radius: 25px;
