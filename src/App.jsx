@@ -42,30 +42,30 @@ function App() {
 
 
  // Edit one functions
-  useEffect(() => {
-    if (indicateSubmit) {
-      handleEditSubmit()
-    }
-  }, [indicateSubmit])
+ useEffect(() => {
+  if (indicateSubmit) {
+    handleEditSubmit()
+  }
+}, [indicateSubmit])
 
-  
-  const handleEditSubmit = async () => {
-    try {
-      const id = indicateSubmit.id;
-      delete indicateSubmit.id;
-      const result = await fetch(`${url}/${id}`, {
-        method: 'PUT',
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(indicateSubmit)
-      });
-      const response = await result.json();
-    } catch (err) {
-      console.error(err);
-    }
-    populateAllBooks();
-  };
+
+const handleEditSubmit = async () => {
+  try {
+    const id = indicateSubmit.id;
+    delete indicateSubmit.id;
+    const result = await fetch(`${url}/${id}`, {
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(indicateSubmit)
+    });
+    const response = await result.json()
+  } catch (err) {
+    console.error(err)
+  }
+  populateAllBooks()
+}
   
   
 
