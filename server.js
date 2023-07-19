@@ -18,11 +18,6 @@ app.use(express.static('dist'))
 
 const pool = new Pool ({
     connectionString: process.env.DATABASE_URL
-    // user: 'postgres',
-    // database: 'lit_lobby',
-    // password: 'a',
-    // port: 5432,
-    // host: 'localhost'
 })
 
 

@@ -55,7 +55,7 @@ const AddForm = ({ setIsNewBook }) => {
                 <label className="addLabel">Author</label>
                 
                 <textarea className="formText" value={descriptionValue} onChange={changeDescription} required></textarea>
-                <label className="addLabel">Description</label>
+                <label className="addLabel">Notes/Description</label>
                 
                 <input className="formText" type='text' value={genreValue} id="genre"onChange={changeGenre} required></input>
                 <label className="addLabel">Genre</label>

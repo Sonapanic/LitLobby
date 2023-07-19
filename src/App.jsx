@@ -7,7 +7,6 @@ import CardDiv from './components/CardDiv.jsx'
 import AddForm from './components/AddForm.jsx'
 
 const url = 'https://litlobby.onrender.com/books'
-// const url = 'http://localhost:10000/books'
 
 function App() {
   
@@ -51,26 +50,21 @@ function App() {
 
   
   const handleEditSubmit = async () => {
-  
-      // if (indicateSubmit && indicateSubmit.title && indicateSubmit.author && indicateSubmit.description && indicateSubmit.genre && indicateSubmit.page) {
-        try {
-          const id = indicateSubmit.id;
-          delete indicateSubmit.id;
-          const result = await fetch(`${url}/${id}`, {
-            method: 'PUT',
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(indicateSubmit)
-          });
-          const response = await result.json();
-        } catch (err) {
-          console.error(err);
-        }
-        populateAllBooks();
-    // } else {
-    //   window.confirm('Fill in all fields')
-    // }
+    try {
+      const id = indicateSubmit.id;
+      delete indicateSubmit.id;
+      const result = await fetch(`${url}/${id}`, {
+        method: 'PUT',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(indicateSubmit)
+      });
+      const response = await result.json();
+    } catch (err) {
+      console.error(err);
+    }
+    populateAllBooks();
   };
   
   
@@ -132,9 +126,7 @@ function App() {
 
 
 
-
-
-
+  // Returns
   if (toBeAdded) {
     return (<>
       <Header setToBeAdded={setToBeAdded} toBeAdded={toBeAdded}/>
